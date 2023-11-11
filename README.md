@@ -4,6 +4,7 @@
 
 In the dynamic landscape of banking systems, ensuring the resilience and availability of core services is paramount. AWS provides a spectrum of disaster recovery (DR) strategies, offering a range of options to cater to diverse business needs. These strategies can be broadly categorized into four approaches:
 
+
 ![Disaster Recovery Strategies](./disaster-recovery-strategies.png)
 
 1. **Backup & Restore:**
