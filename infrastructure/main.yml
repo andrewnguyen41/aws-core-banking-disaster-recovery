@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  VPCStack:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      TemplateURL: "vpc.yaml"
+      Parameters:
+        VpcCIDR: "10.0.0.0/16"
+        PublicSubnetCIDR: "10.0.1.0/24"
+        PrivateSubnet1CIDR: "10.0.2.0/24"
+
+  RDSStack:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      TemplateURL: "rds.yaml"
+      Parameters:
+        DBUsername: ""
+        DBPassword: ""
+        DBInstanceIdentifier: "MyDBInstance"
+        VpcId: !GetAtt VPCStack.Outputs.VpcId
+        PrivateSubnet1Id: !GetAtt VPCStack.Outputs.PrivateSubnet1Id
+
+  AutoScalingGroupStack:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      TemplateURL: "auto_scaling_group.yaml"
+      Parameters:
+        VpcId: !GetAtt VPCStack.Outputs.VpcId
+        PrivateSubnet1Id: !GetAtt VPCStack.Outputs.PrivateSubnet1Id
+        KeyName: "YourKeyPair"
+
+  Route53Stack:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      TemplateURL: "route53.yaml"
+      Parameters:
+        DomainName: "example.com"

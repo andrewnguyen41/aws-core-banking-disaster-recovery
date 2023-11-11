@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  DBUsername:
+    Type: String
+    Default: "admin"
+  DBPassword:
+    Type: String
+    Default: "admin123"
+  DBInstanceIdentifier:
+    Type: String
+    Default: "MyDBInstance"
+  VpcId:
+    Type: "AWS::EC2::VPC::Id"
+  PrivateSubnet1Id:
+    Type: "AWS::EC2::Subnet::Id"
+Resources:
+  MyDBInstance:
+    Type: "AWS::RDS::DBInstance"
+    Properties:
+      Engine: "MySQL"
+      DBInstanceIdentifier: !Ref DBInstanceIdentifier
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+      AllocatedStorage: 20
+      DBInstanceClass: "db.t2.micro"
+      VPCSecurityGroups:
+        - !GetAtt MyDBSecurityGroup.GroupId
+      AvailabilityZone: !Select [1, !GetAZs !Ref "AWS::Region"]
+      DBSubnetGroupName: !Ref MyDBSubnetGroup
+      PubliclyAccessible: false
+  MyDBSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties:
+      DBSubnetGroupDescription: "Subnet group for RDS"
+      SubnetIds:
+        - !Ref PrivateSubnet1Id
+  MyDBSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      VpcId: !Ref VpcId
+      GroupDescription: "Security group for RDS"
+      SecurityGroupIngress:
+        - CidrIp: "0.0.0.0/0"
+          IpProtocol: -1

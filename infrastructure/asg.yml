@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  VpcId:
+    Type: "AWS::EC2::VPC::Id"
+  PrivateSubnet1Id:
+    Type: "AWS::EC2::Subnet::Id"
+  KeyName:
+    Type: String
+    Default: "YourKeyPair"
+Resources:
+  MyLaunchConfig:
+    Type: "AWS::AutoScaling::LaunchConfiguration"
+    Properties:
+      ImageId: "ami-0123456789abcdef0"  # Specify your AMI ID
+      InstanceType: "t2.micro"
+      KeyName: !Ref KeyName
+  MyAutoScalingGroup:
+    Type: "AWS::AutoScaling::AutoScalingGroup"
+    Properties:
+      VPCZoneIdentifier:
+        - !Ref PrivateSubnet1Id
+      LaunchConfigurationName: !Ref MyLaunchConfig
+      MinSize: 1
+      MaxSize: 3
+      DesiredCapacity: 2

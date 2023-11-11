@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  VpcCIDR:
+    Type: String
+    Default: "10.0.0.0/16"
+  PublicSubnetCIDR:
+    Type: String
+    Default: "10.0.1.0/24"
+  PrivateSubnet1CIDR:
+    Type: String
+    Default: "10.0.2.0/24"
+Resources:
+  MyVPC:
+    Type: "AWS::EC2::VPC"
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC
+  PublicSubnet:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PublicSubnetCIDR
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet
+  PrivateSubnet1:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PrivateSubnet1CIDR
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet1

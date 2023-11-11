@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  DomainName:
+    Type: String
+    Default: "example.com"
+Resources:
+  MyDNSRecord:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      HostedZoneId: "your_hosted_zone_id"  # Replace with your hosted zone ID
+      Name: !Ref DomainName
+      Type: "A"
+      TTL: "60"
+      Weight: "1"
+      SetIdentifier: "Primary"
+      AliasTarget:
+        DNSName: !GetAtt MyELB.DNSName
+        EvaluateTargetHealth: false
+  MyELB:
+    Type: "AWS::ElasticLoadBalancing::LoadBalancer"
+    Properties:
+      Subnets:
+        - !Ref PublicSubnet
+      Listeners:
+        - LoadBalancerPort: 80
+          InstancePort: 80
+          Protocol: HTTP
+  MyRecordSetFailover:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      HostedZoneId: "your_hosted_zone_id"  # Replace with your hosted zone ID
+      Name: !Ref DomainName
+      Type: "A"
+      TTL: "60"
+      SetIdentifier: "Failover"
+      Failover: "SECONDARY"
+      Weight: "1"
+      AliasTarget:
+        DNSName: !GetAtt MyELB.DNSName
+        EvaluateTargetHealth: false
