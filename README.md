@@ -104,7 +104,7 @@ The `route53.yaml` template configures DNS settings using AWS Route 53. It plays
 
 The `main.yml` file acts as an orchestrator, referencing the individual templates to create a cohesive disaster recovery infrastructure. It ensures modularity, ease of management, and the systematic deployment of the entire infrastructure.
 
-## Usage
+### Usage
 
 To deploy the disaster recovery infrastructure, execute the `main.yml` CloudFormation template. Customize the parameters within each template according to specific requirements, such as VPC CIDR blocks, database credentials, and key pairs for EC2 instances.
 
