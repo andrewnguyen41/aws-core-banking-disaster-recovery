@@ -1,8 +1,8 @@
 # Disaster Recovery for Core Banking System on AWS Cloud
 
-## Concepts about AWS Disaster Recovery
+## Disaster Recovery With AWS
 
-In the dynamic landscape of banking systems, ensuring the resilience and availability of core services is paramount. AWS provides a spectrum of disaster recovery (DR) strategies, offering a range of options to cater to diverse business needs. These strategies can be broadly categorized into four approaches:
+In the fast-paced world of banking systems, making sure that core services remain resilient and accessible is crucial. With AWS the help of cloud, we can employ variety of disaster recovery (DR) strategies, providing a range of options to suit different business needs. Let's delve into these strategies, categorizing them broadly into four approaches
 
 
 ![Disaster Recovery Strategies](./disaster-recovery-strategies.png)
