@@ -1,6 +1,6 @@
 # Disaster Recovery for Core Banking System on AWS Cloud
 
-## Disaster Recovery With AWS
+## Scenario
 
 In the fast-paced world of banking systems, ensuring the resilience and accessibility of core services is paramount. This propose system design helps credit unions prepare for disaster recovery while also staying compliant with requirements such as General Data Protection Regulation (GDPR), Gramm-Leach-Bliley Act (GLBA), and Federal Financial Institutions Examination Council (FFIEC).\
 Leveraging the AWS cloud, we can implement a variety of disaster recovery (DR) strategies, providing a diverse set of options to meet different business needs. Let's explore these strategies, categorizing them broadly into four approaches:
