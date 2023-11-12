@@ -5,7 +5,9 @@
 In the fast-paced world of banking systems, ensuring the resilience and accessibility of core services is paramount. This propose system design helps credit unions prepare for disaster recovery while also staying compliant with requirements such as General Data Protection Regulation (GDPR), Gramm-Leach-Bliley Act (GLBA), and Federal Financial Institutions Examination Council (FFIEC).\
 Leveraging the AWS cloud, we can implement a variety of disaster recovery (DR) strategies, providing a diverse set of options to meet different business needs. Let's explore these strategies, categorizing them broadly into four approaches:
 
-![Disaster Recovery Strategies](./disaster-recovery-strategies.png)
+<div align="center">
+<img src="./disaster-recovery-strategies.png" alt="Disaster Recovery Strategies" width="80%"/>
+</div>
 
 1. **Backup & Restore:**
    - **Details:** Regularly back up data, configurations, and applications. In case of a disaster, the system is restored to a previous state.
@@ -31,7 +33,9 @@ Among the various AWS disaster recovery options, the Warm Standby approach emerg
 
 ## Proposed Architecture:
 
-![Architecture](./aws-core-banking.png)
+<div align="center">
+<img src="./aws-core-banking.png" alt="Architecture" width="80%"/>
+</div>
 
 #### AWS Service Overview:
 
@@ -52,7 +56,9 @@ Among the various AWS disaster recovery options, the Warm Standby approach emerg
 
 ## Architecture Breakdown:
 
-![Architecture Breakdown](./aws-core-banking-with-numbers.png)
+<div align="center">
+<img src="./aws-core-banking-with-numbers.png" alt="Architecture Breakdown" width="80%"/>
+</div>
 
 1. **Route53 for Intelligent DNS Routing:**
    - Normally routes traffic to the on-premise system.
