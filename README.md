@@ -6,7 +6,9 @@ In the fast-paced world of banking systems, ensuring the resilience and accessib
 Leveraging the AWS cloud, we can implement a variety of disaster recovery (DR) strategies, providing a diverse set of options to meet different business needs. Let's explore these strategies, categorizing them broadly into four approaches:
 
 <div align="center">
-<img src="./disaster-recovery-strategies.png" alt="Disaster Recovery Strategies" width="80%"/>
+<img src="./disaster-recovery-strategies.png" alt="Disaster Recovery Strategies" width="60%"/> </br>
+   <span style="font-size: 0.5em;">source: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
+</span>
 </div>
 
 1. **Backup & Restore:**
