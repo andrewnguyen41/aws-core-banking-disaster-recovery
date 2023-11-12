@@ -7,8 +7,8 @@ Leveraging the AWS cloud, we can implement a variety of disaster recovery (DR) s
 
 <div align="center">
 <img src="./disaster-recovery-strategies.png" alt="Disaster Recovery Strategies" width="70%"/> </br>
-   <sup><sup>source: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
-</sup></sup>
+   <sup>source: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
+</sup>
 </div>
 
 1. **Backup & Restore:**
