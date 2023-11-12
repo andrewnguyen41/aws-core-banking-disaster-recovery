@@ -76,7 +76,7 @@ Among the various AWS disaster recovery options, the Warm Standby approach emerg
     - **KMS:** Utilized for creating and managing encryption keys.
 
 6. **System Monitoring:**
-   - **CloudWatch:** Provides comprehensive monitoring.
+   - CloudWatch provides comprehensive monitoring.
    - Implements alarms to trigger EC2 auto-scaling.
    - Incorporates X-Ray to track cross-services communication.
    - Utilizes AWS Config to ensure security vulnerabilities are promptly addressed.
