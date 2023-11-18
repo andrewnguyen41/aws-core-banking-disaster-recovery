@@ -78,7 +78,7 @@ Among the various AWS disaster recovery options, the Warm Standby approach emerg
    - Utilizes Elastic Load Balancer exclusively as an internet-facing component to efficiently distribute traffic across multiple application instances.
    - Employs an Autoscaling Group to seamlessly manage EC2 instances, automatically adjusting the scale in or out based on real-time traffic conditions.
 
-5. **Security Measures:**
+5. **Security:**
     - **IAM:** Manages access to AWS services and resources securely.
     - **Secrets Manager:** Stores and manages sensitive information such as API keys, database passwords, and other credentials.
     - **KMS:** Utilized for creating and managing encryption keys.
