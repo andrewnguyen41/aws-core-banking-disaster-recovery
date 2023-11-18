@@ -1,1 +1,3 @@
 test/* linguist-vendored
+*.yml linguist-detectable=true
+*.yml linguist-language=YAML
